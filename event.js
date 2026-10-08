@@ -325,10 +325,10 @@ function filterUrl(url) {
     return false;
 }
 
-// 返回根据 url 求出的域名（去掉 www 前缀）
+// 返回根据 url 求出的域名（去掉 www 前缀，保留非默认端口）
 function extractDomain(url) {
     try {
-        return new URL(url).hostname.replace(/^www\./, "");
+        return new URL(url).host.replace(/^www\./, "");
     } catch (e) {
         return url;
     }
